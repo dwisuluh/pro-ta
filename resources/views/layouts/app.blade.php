@@ -37,7 +37,7 @@
 
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
   @guest
     @yield('content')
   @endguest
@@ -52,7 +52,7 @@
 
 
     </div>
-    <footer id="footer" class="footer fixed-bottom bg-light">
+    <footer id="footer" class="footer mt-auto bg-light">
       <div class="copyright">
         &copy; Copyright <strong><span>Poltekkes BSI</span></strong>. All Rights Reserved
       </div>
