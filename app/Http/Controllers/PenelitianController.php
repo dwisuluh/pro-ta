@@ -2,26 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreSuratRequest;
-use App\Http\Requests\UpdateSuratRequest;
-use App\Models\Surat;
+use Illuminate\Http\Request;
 
-class SuratController extends Controller
+class PenelitianController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     public function index()
     {
-        return view('surat.index',[
-            'active' => 'surat'
+        return view('surat.penelitian',[
+            'active' => 'surat',
+            'sub' => 'penelitian'
         ]);
     }
 
@@ -38,10 +32,10 @@ class SuratController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreSuratRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreSuratRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -49,10 +43,10 @@ class SuratController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Surat  $surat
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Surat $surat)
+    public function show($id)
     {
         //
     }
@@ -60,10 +54,10 @@ class SuratController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Surat  $surat
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Surat $surat)
+    public function edit($id)
     {
         //
     }
@@ -71,11 +65,11 @@ class SuratController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateSuratRequest  $request
-     * @param  \App\Models\Surat  $surat
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateSuratRequest $request, Surat $surat)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -83,10 +77,10 @@ class SuratController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Surat  $surat
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Surat $surat)
+    public function destroy($id)
     {
         //
     }

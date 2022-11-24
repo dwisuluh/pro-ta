@@ -11,17 +11,17 @@
         </li><!-- End Dashboard Nav -->
 
         <li class="nav-item">
-            <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+            <a class="nav-link {{ ($active === 'surat') ?'':'collapsed' }}" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-menu-button-wide"></i><span>Surat Ijin</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
-            <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+            <ul id="components-nav" class="nav-content collapse {{ ($active === 'surat') ?'show':'' }}" data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="components-alerts.html">
+                    <a href="/pendahuluan" class="{{ ($sub === 'pendahuluan') ?'active':'' }}">
                         <i class="bi bi-circle"></i><span>Studi Pendahuluan</span>
                     </a>
                 </li>
                 <li>
-                    <a href="components-accordion.html">
+                    <a href="/penelitian" class="{{ ($sub === 'penelitian') ?'active':'' }}">
                         <i class="bi bi-circle"></i><span>Penelitian</span>
                     </a>
                 </li>
