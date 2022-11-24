@@ -13,7 +13,7 @@ class PendahuluanController extends Controller
      */
     public function index()
     {
-        return view('surat.pendahuluan',[
+        return view('surat.pendahuluan.index',[
             'active' => 'surat',
             'sub' => 'pendahuluan'
         ]);

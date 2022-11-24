@@ -4,26 +4,26 @@
   <ul class="sidebar-nav" id="sidebar-nav">
 
     <li class="nav-item">
-      <a class="nav-link {{ $active === 'home' ? '' : 'collapsed' }}" href="{{ url('/') }}">
+      <a class="nav-link {{ Request::is('home') ? '' : 'collapsed' }}" href="{{ url('/home') }}">
         <i class="bi bi-grid"></i>
         <span>Dashboard</span>
       </a>
     </li><!-- End Dashboard Nav -->
 
     <li class="nav-item">
-      <a class="nav-link {{ $active === 'surat' ? '' : 'collapsed' }}" data-bs-target="#components-nav"
+      <a class="nav-link {{ Request::is('pendahuluan*') ? '' : (Request::is('penelitian*') ? '':'collapsed') }}" data-bs-target="#components-nav"
         data-bs-toggle="collapse" href="#">
         <i class="bi bi-menu-button-wide"></i><span>Surat Ijin</span><i class="bi bi-chevron-down ms-auto"></i>
       </a>
-      <ul id="components-nav" class="nav-content collapse {{ $active === 'surat' ? 'show' : '' }}"
+      <ul id="components-nav" class="nav-content collapse {{ Request::is('pendahuluan*') ? 'show' : (Request::is('penelitian*') ? 'show' :'') }}"
         data-bs-parent="#sidebar-nav">
         <li>
-          <a href="/pendahuluan" class="{{ $sub === 'pendahuluan' ? 'active' : '' }}">
+          <a href="/pendahuluan" class="{{ Request::is('pendahuluan*') ? 'active' : '' }}">
             <i class="bi bi-circle"></i><span>Studi Pendahuluan</span>
           </a>
         </li>
         <li>
-          <a href="/penelitian" class="{{ $sub === 'penelitian' ? 'active' : '' }}">
+          <a href="/penelitian" class="{{ Request::is('penelitian*') ? 'active' : '' }}">
             <i class="bi bi-circle"></i><span>Penelitian</span>
           </a>
         </li>
@@ -51,14 +51,14 @@
       <li class="nav-heading">Master</li>
 
       <li class="nav-item">
-        <a class="nav-link {{ $active === 'mahasiswa' ? '' : 'collapsed' }}" href="/mahasiswa">
+        <a class="nav-link {{ Request::is('mahasiswa*') ? '' : 'collapsed' }}" href="/mahasiswa">
           <i class="bi bi-person"></i>
           <span>Data Mahasiswa</span>
         </a>
       </li><!-- End Profile Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link {{ $active === 'user' ? '' : 'collapsed' }}" href="/user">
+        <a class="nav-link {{ Request::is('user*') ? '' : 'collapsed' }}" href="/user">
           <i class="bi bi-question-circle"></i>
           <span>User</span>
         </a>

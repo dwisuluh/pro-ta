@@ -13,7 +13,7 @@ class PenelitianController extends Controller
      */
     public function index()
     {
-        return view('surat.penelitian',[
+        return view('surat.penelitian.index',[
             'active' => 'surat',
             'sub' => 'penelitian'
         ]);
