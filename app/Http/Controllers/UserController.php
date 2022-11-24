@@ -11,6 +11,7 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
         $this->authorize('admin');
