@@ -16,9 +16,11 @@ return new class extends Migration
         Schema::create('mahasiswas', function (Blueprint $table) {
             $table->id();
             $table->string('nim',12)->unique();
-            $table->string('nama',100);
+            $table->string('nama',150);
+            $table->enum('jenis_kelamin',['1','2'])->nullable();
             $table->string('prodi',100)->nullable();
-            $table->string('email')->nullable();
+            $table->string('email')->unique()->nullable();
+            $table->boolean('akun')->default(false);
             $table->timestamps();
         });
     }
