@@ -13,7 +13,12 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $this->authorize('admin');
+
+        return view('user.index',[
+            'active' => 'user',
+            'sub' => ''
+        ]);
     }
 
     /**

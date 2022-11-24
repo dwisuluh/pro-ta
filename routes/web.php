@@ -6,6 +6,7 @@ use App\Http\Controllers\SuratController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\PenelitianController;
 use App\Http\Controllers\PendahuluanController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +33,4 @@ Route::resource('mahasiswa',MahasiswaController::class);
 Route::resource('surat',SuratController::class);
 Route::resource('pendahuluan',PendahuluanController::class)->middleware('auth');
 Route::resource('penelitian',PenelitianController::class)->middleware('auth');
+Route::resource('user',UserController::class);
