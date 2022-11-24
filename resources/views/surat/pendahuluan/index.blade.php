@@ -39,39 +39,8 @@
                   <input type="text" class="form-control" value="{{ Auth::user()->name }}" disabled>
                 </div>
               </div>
-              {{-- <div class="row mb-3">
-                <label for="inputNumber" class="col-sm-2 col-form-label">Number</label>
-                <div class="col-sm-10">
-                  <input type="number" class="form-control">
-                </div>
-              </div>
               <div class="row mb-3">
-                <label for="inputNumber" class="col-sm-2 col-form-label">File Upload</label>
-                <div class="col-sm-10">
-                  <input class="form-control" type="file" id="formFile">
-                </div>
-              </div>
-              <div class="row mb-3">
-                <label for="inputDate" class="col-sm-2 col-form-label">Date</label>
-                <div class="col-sm-10">
-                  <input type="date" class="form-control">
-                </div>
-              </div>
-              <div class="row mb-3">
-                <label for="inputTime" class="col-sm-2 col-form-label">Time</label>
-                <div class="col-sm-10">
-                  <input type="time" class="form-control">
-                </div>
-              </div>
-
-              <div class="row mb-3">
-                <label for="inputColor" class="col-sm-2 col-form-label">Color Picker</label>
-                <div class="col-sm-10">
-                  <input type="color" class="form-control form-control-color" id="exampleColorInput" value="#4154f1" title="Choose your color">
-                </div>
-              </div> --}}
-              <div class="row mb-3">
-                <label for="inputPassword" class="col-sm-2 col-form-label">Tujuan Penelitian</label>
+                <label for="inputPassword" class="col-sm-2 col-form-label">Instansi Tujuan</label>
                 <div class="col-sm-10">
                   <textarea class="form-control" style="height: 100px"></textarea>
                 </div>
@@ -158,10 +127,12 @@
               </div> --}}
 
               <div class="row mb-3">
-                {{-- <label class="col-sm-2 col-form-label">Submit Button</label> --}}
-                <div class="col-sm-10 text-center">
-                    <button type="submit" class="btn btn-danger float-left"> Cancel </button>
-                    <button type="submit" class="btn btn-primary float-right"> Submit </button>
+                {{-- <label class="col-sm-2 col-form-label"></label> --}}
+                <div class="col-md-6 text-start">
+                    <button type="submit" class="btn btn-danger text-start"> Cancel </button>
+                </div>
+                    <div class="col-md-6 text-end">
+                    <button type="submit" class="btn btn-primary"> Submit </button>
                 </div>
               </div>
 

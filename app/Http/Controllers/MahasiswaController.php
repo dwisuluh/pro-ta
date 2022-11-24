@@ -17,11 +17,13 @@ class MahasiswaController extends Controller
     // {
     //     $this->middleware('auth');
     // }
+    public function __construct()
+    {
+        $this->authorize('admin');
+    }
 
     public function index()
     {
-        $this->authorize('admin');
-
         return view('mahasiswa.index',[
             'active' => 'mahasiswa',
             'sub' => ''

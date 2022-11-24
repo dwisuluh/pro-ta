@@ -70,7 +70,7 @@
             </div>
 
             <div class="card-body">
-              <h5 class="card-title">Revenue <span>| This Month</span></h5>
+              <h5 class="card-title">Pengajuan Surat Keterangan <span>| Karya Tulis Ilmiah</span></h5>
 
               <div class="d-flex align-items-center">
                 <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -107,7 +107,7 @@
             </div>
 
             <div class="card-body">
-              <h5 class="card-title">Customers <span>| This Year</span></h5>
+              <h5 class="card-title">Mahasiswa <span>| aktif</span></h5>
 
               <div class="d-flex align-items-center">
                 <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">

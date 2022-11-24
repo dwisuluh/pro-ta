@@ -11,66 +11,76 @@
     </nav>
   </div><!-- End Page Title -->
 
-  <div class="card">
-    <div class="card-body">
-      <h5 class="card-title">Floating labels Form</h5>
+  <section class="section">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
 
-      <!-- Floating Labels Form -->
-      <form class="row g-3">
-        <div class="col-md-12">
-          <div class="form-floating">
-            <input type="text" class="form-control" id="floatingName" placeholder="Your Name">
-            <label for="floatingName">Your Name</label>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="form-floating">
-            <input type="email" class="form-control" id="floatingEmail" placeholder="Your Email">
-            <label for="floatingEmail">Your Email</label>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-            <label for="floatingPassword">Password</label>
-          </div>
-        </div>
-        <div class="col-12">
-          <div class="form-floating">
-            <textarea class="form-control" placeholder="Address" id="floatingTextarea" style="height: 100px;"></textarea>
-            <label for="floatingTextarea">Address</label>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="col-md-12">
-            <div class="form-floating">
-              <input type="text" class="form-control" id="floatingCity" placeholder="City">
-              <label for="floatingCity">City</label>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="form-floating mb-3">
-            <select class="form-select" id="floatingSelect" aria-label="State">
-              <option selected>New York</option>
-              <option value="1">Oregon</option>
-              <option value="2">DC</option>
-            </select>
-            <label for="floatingSelect">State</label>
-          </div>
-        </div>
-        <div class="col-md-2">
-          <div class="form-floating">
-            <input type="text" class="form-control" id="floatingZip" placeholder="Zip">
-            <label for="floatingZip">Zip</label>
-          </div>
-        </div>
-        <div class="text-center">
-          <button type="submit" class="btn btn-primary">Submit</button>
-          <button type="reset" class="btn btn-secondary">Reset</button>
-        </div>
-      </form><!-- End floating Labels Form -->
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Pengajuan Ijin Penelitian</h5>
 
+            <!-- General Form Elements -->
+            <form>
+              <div class="row mb-3">
+                <label for="inputText" class="col-sm-2 col-form-label">NIM</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" value="{{ Auth::user()->email }}" disabled>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label for="inputText" class="col-sm-2 col-form-label">Nama</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" value="{{ Auth::user()->name }}" disabled>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label for="inputText" class="col-sm-2 col-form-label">Program Studi</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" value="{{ Auth::user()->name }}" disabled>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Instansi Tujuan</label>
+                <div class="col-sm-10">
+                  <textarea class="form-control" style="height: 100px"></textarea>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Judul Karya Tulis Ilmiah</label>
+                <div class="col-sm-10">
+                  <textarea class="form-control" style="height: 100px"></textarea>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Alamat Instansi</label>
+                <div class="col-sm-10">
+                  <textarea class="form-control" style="height: 100px"></textarea>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label for="inputDate" class="col-sm-2 col-form-label">Tanggal Pelaksanaan</label>
+                <div class="col-sm-4">
+                  <input type="date" class="form-control">
+                </div>
+                <label for="inputDate" class="col-sm-1 col-form-label"> Sampai </label>
+                <div class="col-sm-4">
+                    <input type="date" class="form-control">
+                  </div>
+              </div>
+              <div class="row mb-3">
+                {{-- <label class="col-sm-2 col-form-label"></label> --}}
+                <div class="col-md-6 text-start">
+                  <button type="submit" class="btn btn-danger text-start"> Cancel </button>
+                </div>
+                <div class="col-md-6 text-end">
+                  <button type="submit" class="btn btn-primary"> Submit </button>
+                </div>
+              </div>
+            </form><!-- End General Form Elements -->
+
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
 @endsection
