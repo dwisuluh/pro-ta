@@ -17,8 +17,6 @@ class UserController extends Controller
         $this->authorize('admin');
 
         return view('user.index',[
-            'active' => 'user',
-            'sub' => ''
         ]);
     }
 

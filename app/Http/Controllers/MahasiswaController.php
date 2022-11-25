@@ -25,11 +25,9 @@ class MahasiswaController extends Controller
     public function index()
     {
         // $this->authorize('admin');
+        $mahasiswas = Mahasiswa::where('akun','=','true')->get();
 
-        return view('mahasiswa.index',[
-            'active' => 'mahasiswa',
-            'sub' => ''
-        ]);
+        return view('mahasiswa.index',compact('mahasiswas'));
     }
 
     /**
@@ -39,7 +37,7 @@ class MahasiswaController extends Controller
      */
     public function create()
     {
-        //
+        return view('mahasiswa.create');
     }
 
     /**

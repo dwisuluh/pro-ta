@@ -29,7 +29,7 @@ Route::get('/', function(){
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::resource('mahasiswa',MahasiswaController::class);
+Route::resource('mahasiswa',MahasiswaController::class)->middleware('auth');
 Route::resource('surat',SuratController::class);
 Route::resource('pendahuluan',PendahuluanController::class)->middleware('auth');
 Route::resource('penelitian',PenelitianController::class)->middleware('auth');

@@ -1,171 +1,58 @@
 @extends('layouts.app')
 @section('content')
-  {{-- <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">{{ __('Mahasiswa') }}</div>
+  <div class="pagetitle">
+    <h1>Mahasiswa</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
+        <li class="breadcrumb-item active">Data Mahasiswa</li>
+      </ol>
+    </nav>
+  </div><!-- End Page Title -->
 
-                    <div class="card-body">
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
-
-                        {{ __('You are logged in!') }}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
   <div class="container">
-
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Bordered Table</h5>
-        <p>Add <code>.table-bordered</code> for borders on all sides of the table and cells.</p>
-        <!-- Bordered Table -->
-        <table class="table datatable">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Name</th>
-              <th scope="col">Position</th>
-              <th scope="col">Age</th>
-              <th scope="col">Start Date</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Brandon Jacob</td>
-              <td>Designer</td>
-              <td>28</td>
-              <td>2016-05-25</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Bridie Kessler</td>
-              <td>Developer</td>
-              <td>35</td>
-              <td>2014-12-05</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Ashleigh Langosh</td>
-              <td>Finance</td>
-              <td>45</td>
-              <td>2011-08-12</td>
-            </tr>
-            <tr>
-              <th scope="row">4</th>
-              <td>Angus Grady</td>
-              <td>HR</td>
-              <td>34</td>
-              <td>2012-06-11</td>
-            </tr>
-            <tr>
-              <th scope="row">5</th>
-              <td>Raheem Lehner</td>
-              <td>Dynamic Division Officer</td>
-              <td>47</td>
-              <td>2011-04-19</td>
-            </tr>
-            <tr>
-              <th scope="row">5</th>
-              <td>Raheem Lehner</td>
-              <td>Dynamic Division Officer</td>
-              <td>47</td>
-              <td>2011-04-19</td>
-            </tr>
-            <tr>
-              <th scope="row">5</th>
-              <td>Raheem Lehner</td>
-              <td>Dynamic Division Officer</td>
-              <td>47</td>
-              <td>2011-04-19</td>
-            </tr>
-            <tr>
-              <th scope="row">5</th>
-              <td>Raheem Lehner</td>
-              <td>Dynamic Division Officer</td>
-              <td>47</td>
-              <td>2011-04-19</td>
-            </tr>
-            <tr>
-              <th scope="row">5</th>
-              <td>Raheem Lehner</td>
-              <td>Dynamic Division Officer</td>
-              <td>47</td>
-              <td>2011-04-19</td>
-            </tr>
-            <tr>
-              <th scope="row">5</th>
-              <td>Raheem Lehner</td>
-              <td>Dynamic Division Officer</td>
-              <td>47</td>
-              <td>2011-04-19</td>
-            </tr>
-            <tr>
-              <th scope="row">5</th>
-              <td>Raheem Lehner</td>
-              <td>Dynamic Division Officer</td>
-              <td>47</td>
-              <td>2011-04-19</td>
-            </tr>
-            <tr>
-              <th scope="row">5</th>
-              <td>Raheem Lehner</td>
-              <td>Dynamic Division Officer</td>
-              <td>47</td>
-              <td>2011-04-19</td>
-            </tr>
-            <tr>
-              <th scope="row">5</th>
-              <td>Raheem Lehner</td>
-              <td>Dynamic Division Officer</td>
-              <td>47</td>
-              <td>2011-04-19</td>
-            </tr>
-            <tr>
-              <th scope="row">5</th>
-              <td>Raheem Lehner</td>
-              <td>Dynamic Division Officer</td>
-              <td>47</td>
-              <td>2011-04-19</td>
-            </tr>
-            <tr>
-              <th scope="row">5</th>
-              <td>Raheem Lehner</td>
-              <td>Dynamic Division Officer</td>
-              <td>47</td>
-              <td>2011-04-19</td>
-            </tr>
-            <tr>
-              <th scope="row">5</th>
-              <td>Raheem Lehner</td>
-              <td>Dynamic Division Officer</td>
-              <td>47</td>
-              <td>2011-04-19</td>
-            </tr>
-            <tr>
-              <th scope="row">5</th>
-              <td>Raheem Lehner</td>
-              <td>Dynamic Division Officer</td>
-              <td>47</td>
-              <td>2011-04-19</td>
-            </tr>
-            <tr>
-              <th scope="row">5</th>
-              <td>Raheem Lehner</td>
-              <td>Dynamic Division Officer</td>
-              <td>47</td>
-              <td>2011-04-19</td>
-            </tr>
-          </tbody>
-        </table>
-        <!-- End Bordered Table -->
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Data Mahasiswa</h5>
+            <p class="text-end"><a href="{{ route('mahasiswa.create') }}" class="btn btn-primary btn-sm text-end">
+                <i class="bi bi-person-plus"></i> Tambah Data </a></p>
+            <!-- Bordered Table -->
+            <table class="table datatable">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">NIM</th>
+                  <th scope="col">Nama</th>
+                  <th scope="col">Program Studi</th>
+                  <th scope="col">Aksi</th>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach ($mahasiswas as $mahasiswa)
+                  <tr>
+                    <th scope="row">{{ $loop->iteration }}</th>
+                    <td>{{ $mahasiswa->nim }}</td>
+                    <td>{{ $mahasiswa->nama }}</td>
+                    <td>{{ $mahasiswa->prodi }}</td>
+                    <td>
+                      <form method="POST" action="{{ route('mahasiswa.destroy', $mahasiswa->id) }}">
+                        <a type="button" class="btn btn-success" data-toggle="tooltip" data-placement="top"
+                          title="Detail"><i class="bi bi-person-check"></i></a>
+                        <a type="button" class="btn btn-warning"><i class="bi bi-pencil"></i></a>
+                        @method('DELETE')
+                        @csrf
+                        <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                      </form>
+                    </td>
+                  </tr>
+                @endforeach
+              </tbody>
+            </table>
+            <!-- End Bordered Table -->
+          </div>
+        </div>
       </div>
     </div>
   </div>
