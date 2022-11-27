@@ -2,12 +2,18 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
 use App\Models\User;
-use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Mail\EmailNotification;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Notifications\WelcomeEmailNotification;
+// use Illuminate\Notifications\Notification;
+use Illuminate\Support\Facades\Notification;
+use stdClass;
 
 class RegisterController extends Controller
 {
@@ -64,10 +70,35 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+        // $user =  User::create([
+        //     'name' => $data['name'],
+        //     'email' => $data['email'],
+        //     'password' => Hash::make($data['password']),
+        // ]);
+
+        // $newData = json_decode(json_encode($data),FALSE);
+        $newData = new stdClass();
+        foreach ($data as $key => $value)
+        {
+            $newData->$key = $value;
+        }
+        // dd($data);
+        // Notification::sendNow($data, new WelcomeEmailNotification($data));
+        Notification::route('mail',$data['email'])->notify(new WelcomeEmailNotification($data));
+        // // dd($data);
+        // $newData->notify(new WelcomeEmailNotification($data));
+        // // dd($user);
+        // $details = [
+        //     'title' => 'Mail from Akdemik',
+        //     'nama'  => $data['name'],
+        //     'email'  => $data['email'],
+        //     'password' => $data['password']
+        // ];
+        // Mail::to($data['email'])->send(new EmailNotification($newData));
+
+        // $details->notify(new WelcomeEmailNotification($data));
+
+        // return $user;
+
     }
 }
