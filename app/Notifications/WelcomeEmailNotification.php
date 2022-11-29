@@ -46,11 +46,10 @@ class WelcomeEmailNotification extends Notification
         return (new MailMessage)
             ->from('akademik@poltekkes-bsi.ac.id', 'Admin')
             ->subject('Username dan Password')
-            ->greeting('Hello, ' . $this->data['name'])
-            ->line('Terima kasih telah aktivasi akun.')
-            ->line('Untuk password anda adalah '. $this->data['password'])
-            ->action('Notification Action', url('/'))
-            ->line('Thank you for using our application!');
+            ->greeting($this->data['greeting'])
+            ->line($this->data['body'])
+            ->action($this->data['actionText'], $this->data['action'])
+            ->line($this->data['thanks']);
     }
 
     /**

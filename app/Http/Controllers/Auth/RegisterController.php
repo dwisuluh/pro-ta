@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers\Auth;
 
+use stdClass;
 use App\Models\User;
+use App\Models\Mahasiswa;
 use App\Mail\EmailNotification;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Foundation\Auth\RegistersUsers;
-use App\Notifications\WelcomeEmailNotification;
 // use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Notification;
-use stdClass;
+use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Notifications\WelcomeEmailNotification;
 
 class RegisterController extends Controller
 {
@@ -56,9 +57,10 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            // 'name' => ['required', 'string', 'max:255'],
+            'nim'   => ['required', 'string','exists:mahasiswas,nim'],
+            'email' => ['required', 'string', 'email:dns', 'max:255', 'unique:users'],
+            // 'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
 
@@ -70,21 +72,42 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $random = "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+        $password = substr(str_shuffle($random),0,8);
+        $mahasiswa = Mahasiswa::where('nim',$data['nim'])->first();
+        $send = [
+            'greeting'  => 'Hi, Selamat Datang, '.$mahasiswa['nama'],
+            'body'      => 'Terima kasih telah melakukan resgitrasi akun. <br>'.
+            'untuk melakukan login silahkan menggunakan username dan password sebagai berikut: <br>'.
+            '<strong>Username : </strong>'.$data['nim'].'<br>'.
+            '<strong>Password : </strong>'.$password.'<br>',
+            'actionText'    => 'Link Aplikasi',
+            'action'        => url('/'),
+            'thanks'        => 'jangan lupa untuk melakukan mengganti password setelah melakukan login ke aplikasi.'
+            // 'username'  => $data['nim'],
+            // 'email'     => $data['email'],
+            // 'name'      => $mahasiswa['nama'],
+            // 'password'  => $password
+        ];
+        $mahasiswa->email = $data['email'];
+        $mahasiswa->akun = 1;
+        $mahasiswa->save();
+
         // $user =  User::create([
-        //     'name' => $data['name'],
+        //     'username' => $data['nim'],
+        //     'name' => $mahasiswa['nama'],
         //     'email' => $data['email'],
-        //     'password' => Hash::make($data['password']),
+        //     'password' => Hash::make($password),
         // ]);
 
         // $newData = json_decode(json_encode($data),FALSE);
-        $newData = new stdClass();
-        foreach ($data as $key => $value)
-        {
-            $newData->$key = $value;
-        }
+        // $newData = new stdClass();
+        // foreach ($data as $key => $value) {
+        //     $newData->$key = $value;
+        // }
         // dd($data);
         // Notification::sendNow($data, new WelcomeEmailNotification($data));
-        Notification::route('mail',$data['email'])->notify(new WelcomeEmailNotification($data));
+        Notification::route('mail', $data['email'])->notify(new WelcomeEmailNotification($send));
         // // dd($data);
         // $newData->notify(new WelcomeEmailNotification($data));
         // // dd($user);

@@ -28,7 +28,7 @@
                                 <form class="row g-3 needs-validation" action="{{ route('register') }}" method="POST"
                                     novalidate>
                                     @csrf
-                                    <div class="col-12">
+                                    {{-- <div class="col-12">
                                         <label for="yourName" class="form-label">Nama</label>
                                         <input type="text" name="name"
                                             class="form-control @error('name') is-invalid @enderror"
@@ -36,6 +36,19 @@
                                             autofocus>
                                         <div class="invalid-feedback">Please, enter your name!</div>
                                         @error('name')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div> --}}
+                                    <div class="col-12">
+                                        <label for="yourNIM" class="form-label">NIM</label>
+                                        <input type="text" name="nim"
+                                            class="form-control @error('nim') is-invalid @enderror"
+                                            value="{{ old('nim') }}" id="yourNIM" required autocomplete="name"
+                                            autofocus>
+                                        {{-- <div class="invalid-feedback">Please, enter your name!</div> --}}
+                                        @error('nim')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
@@ -48,31 +61,31 @@
                                             class="form-control @error('email') is-invalid @enderror"
                                             value="{{ old('email') }}" id="yourEmail" required>
                                         <div class="invalid-feedback">Please enter a valid Email adddress!</div>
-                                        @error('name')
+                                        @error('email')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
                                         @enderror
                                     </div>
 
-                                    <div class="col-12">
+                                    {{-- <div class="col-12">
                                         <label for="yourPassword" class="form-label">Password</label>
                                         <input type="password" name="password"
                                             class="form-control @error('password') is-invalid @enderror" id="yourPassword"
                                             required>
                                         {{-- <div class="invalid-feedback">Please enter your password!</div> --}}
-                                        @error('password')
+                                        {{-- @error('password')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
-                                        @enderror
-                                    </div>
+                                        @enderror --}}
+                                    {{-- </div>
                                     <div class="col-12">
                                         <label for="yourPassword" class="form-label">Password Confirmasi</label>
                                         <input type="password" name="password_confirmation" class="form-control"
                                             id="yourPassword-confirmasi" required>
                                         <div class="invalid-feedback">Please enter your password!</div>
-                                    </div>
+                                    </div> --}}
 
                                     <div class="col-12">
                                         <div class="form-check">
