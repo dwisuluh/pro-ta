@@ -58,7 +58,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             // 'name' => ['required', 'string', 'max:255'],
-            'nim'   => ['required', 'string','exists:mahasiswas,nim'],
+            'nim'   => ['required', 'string','exists:mahasiswas,nim','unique:users,username'],
             'email' => ['required', 'string', 'email:dns', 'max:255', 'unique:users'],
             // 'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -89,17 +89,19 @@ class RegisterController extends Controller
             // 'name'      => $mahasiswa['nama'],
             // 'password'  => $password
         ];
+
+        $user =  User::create([
+            'username' => $data['nim'],
+            'name' => $mahasiswa['nama'],
+            'email' => $data['email'],
+            'password' => Hash::make($password),
+        ]);
+        $userid = User::where('username',$data['nim'])->first();
+
+        $mahasiswa->user_id = $userid['id'];
         $mahasiswa->email = $data['email'];
-        $mahasiswa->akun = 1;
+        $mahasiswa->status = 1;
         $mahasiswa->save();
-
-        // $user =  User::create([
-        //     'username' => $data['nim'],
-        //     'name' => $mahasiswa['nama'],
-        //     'email' => $data['email'],
-        //     'password' => Hash::make($password),
-        // ]);
-
         // $newData = json_decode(json_encode($data),FALSE);
         // $newData = new stdClass();
         // foreach ($data as $key => $value) {
@@ -121,7 +123,7 @@ class RegisterController extends Controller
 
         // $details->notify(new WelcomeEmailNotification($data));
 
-        // return $user;
+        return $user;
 
     }
 }

@@ -29,13 +29,13 @@
                   @csrf
 
                   <div class="col-12">
-                    <label for="yourUsername" class="form-label">Email</label>
+                    <label for="yourUsername" class="form-label">Username</label>
                     <div class="input-group has-validation">
-                      <input type="text" name="email" class="form-control @error('email') is-invalid @enderror"
-                        id="yourUsername" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                      <input type="text" name="username" class="form-control @error('username') is-invalid @enderror"
+                        id="yourUsername" value="{{ old('username') }}" required autocomplete="username" autofocus>
 
                       {{-- <div class="invalid-feedback">Please enter your username.</div> --}}
-                      @error('email')
+                      @error('username')
                         <span class="invalid-feedback" role="alert">
                           <strong>{{ $message }}</strong>
                         </span>

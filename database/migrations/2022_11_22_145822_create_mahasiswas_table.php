@@ -15,12 +15,13 @@ return new class extends Migration
     {
         Schema::create('mahasiswas', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->nullable();
             $table->string('nim',12)->unique();
             $table->string('nama',150);
             $table->enum('jenis_kelamin',['1','2'])->nullable();
-            $table->string('prodi',100)->nullable();
+            $table->enum('prodi',['1','2','3','4'])->nullable();
             $table->string('email')->unique()->nullable();
-            $table->boolean('akun')->default(false);
+            $table->boolean('status')->default(false);
             $table->timestamps();
         });
     }

@@ -10,6 +10,26 @@
       </ol>
     </nav>
   </div><!-- End Page Title -->
+  @switch(Auth::user()->mahasiswa->prodi)
+    @case(1)
+        @php
+            $prodi = 'Rekam Medis dan Teknologi Kesehatan';
+        @endphp
+        @break
+    @case(2)
+        @php
+            $prodi = 'Teknologi Bank Darah';
+        @endphp
+
+        @break
+    @case(3)
+        @php
+            $prodi = 'Farmasi';
+        @endphp
+
+    @default
+
+@endswitch
 
   <section class="section">
     <div class="row justify-content-center">
@@ -24,7 +44,7 @@
               <div class="row mb-3">
                 <label for="inputText" class="col-sm-2 col-form-label">NIM</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" value="{{ Auth::user()->email }}" disabled>
+                  <input type="text" class="form-control" value="{{ Auth::user()->mahasiswa->nim }}" disabled>
                 </div>
               </div>
               <div class="row mb-3">
@@ -36,7 +56,7 @@
               <div class="row mb-3">
                 <label for="inputText" class="col-sm-2 col-form-label">Program Studi</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" value="{{ Auth::user()->name }}" disabled>
+                  <input type="text" class="form-control" value="{{ $prodi }}" disabled>
                 </div>
               </div>
               <div class="row mb-3">

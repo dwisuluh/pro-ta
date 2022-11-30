@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Surat extends Model
 {
     use HasFactory;
+
+    protected $guarded = ['id'];
+
+    public function Mahasiswa()
+    {
+        return $this->belongsTo(Mahasiswa::class);
+    }
 }
