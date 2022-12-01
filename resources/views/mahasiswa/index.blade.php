@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+<!-- Star Page Header -->
   <div class="pagetitle">
     <h1>Mahasiswa</h1>
     <nav>
@@ -8,7 +9,7 @@
         <li class="breadcrumb-item active">Data Mahasiswa</li>
       </ol>
     </nav>
-  </div><!-- End Page Title -->
+  </div><!-- End Page Header -->
 
   <div class="container">
     <div class="row justify-content-center">
